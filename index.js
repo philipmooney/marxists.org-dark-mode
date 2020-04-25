@@ -36,10 +36,7 @@ const DARK_STYLE_B = {
   aVisited: 'rgb(240,140,91)',
   aActive:  'rgb(82,167,209)',
   misc: `
-sup.anote,sup.ednote,span.info,span.term,p.information,p.toc,p.title2,p.pagenote { color:  rgb(160, 160, 160); }
-a.mecw,span.context,span.date,td.head { color: rgb(160, 160, 160);}
-span.inote,p.transcriber,p.pagenoteb { color: rgb(160, 160, 160);}
-p.endnote { color: rgb(160, 160, 160); }
+sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote { color: rgb(189, 189, 189); }
 hr { border: none; background-color: rgb(45, 45, 45); }
 `};
 
