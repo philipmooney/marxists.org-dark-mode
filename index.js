@@ -1,4 +1,4 @@
-const DARK_STYLE = {
+const DARK_STYLE_A = {
   background: 'rgb(53, 54, 42)',
   color: 'rgb(255, 249, 252)',
   headersA: 'rgb(248, 252, 243)',
@@ -23,6 +23,24 @@ tr.totalb { background: rgb(132, 10, 4); }
 td.index { background: rgb(26, 22, 26); color: rgb(150, 250, 102); }
 td.index-alt,td.indexb { background: rgb(70, 77, 70); color: rgb(160, 255, 96); }
 img { filter: grayscale(95%) invert(95%); opacity: 0.95; }
+`};
+
+const DARK_STYLE_B = {
+  background: 'rgb(26,26,26)',
+  color: 'rgb(224,224,224)',
+  headersA: 'rgb(224,224,224)',
+  headersB: 'rgb(224,224,224)',
+  headersC: 'rgb(224,224,224)',
+  aLink:    'rgb(82,167,209)',
+  aHover:   'rgb(144,179,215)',
+  aVisited: 'rgb(240,140,91)',
+  aActive:  'rgb(82,167,209)',
+  misc: `
+sup.anote,sup.ednote,span.info,span.term,p.information,p.toc,p.title2,p.pagenote { color:  rgb(160, 160, 160); }
+a.mecw,span.context,span.date,td.head { color: rgb(160, 160, 160);}
+span.inote,p.transcriber,p.pagenoteb { color: rgb(160, 160, 160);}
+p.endnote { color: rgb(160, 160, 160); }
+hr { border: none; background-color: rgb(45, 45, 45); }
 `};
 
 /*
@@ -268,6 +286,7 @@ $(function(){
 
   function buildCustomCss(params) {
     return `
+#popover svg { fill: ${params.color}; }
 body { background-color: ${params.background}; color: ${params.color}; }
 h1, h1.big, h2 { color:  ${params.headersA}; }
 h3 , h4 , h5, h6 { color:  ${params.headersB}; }
@@ -295,17 +314,17 @@ ${params.misc}`;
         break;
       }
       case "dark-a": {
-        $style.html(buildCustomCss(DARK_STYLE));
-        setCustomCssFields(DARK_STYLE);
-        state.cssParams = DARK_STYLE;
+        $style.html(buildCustomCss(DARK_STYLE_A));
+        setCustomCssFields(DARK_STYLE_A);
+        state.cssParams = DARK_STYLE_A;
         clearQueryStringParameter();
         $('[data-group=custom]').prop("disabled", true);
         break;
       }
       case "dark-b": {
-        $style.html(buildCustomCss(DARK_STYLE));
-        setCustomCssFields(DARK_STYLE);
-        state.cssParams = DARK_STYLE;
+        $style.html(buildCustomCss(DARK_STYLE_B));
+        setCustomCssFields(DARK_STYLE_B);
+        state.cssParams = DARK_STYLE_B;
         clearQueryStringParameter();
         $('[data-group=custom]').prop("disabled", true);
         break;
@@ -316,12 +335,11 @@ ${params.misc}`;
       }
       default: console.error("unknown value")
     }
-    console.log(state.button);
   }
 
   function onApply() {
     const cssParams = getCustomCss();
-    state.cssParams = DARK_STYLE;
+    state.cssParams = cssParams;
     document.getElementById("dynamic-style").innerHTML = buildCustomCss(cssParams);
     setQueryStringParameter(buildUrlQuery(cssParams));
   }
