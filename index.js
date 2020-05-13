@@ -1,3 +1,111 @@
+/*
+body.night.oled {
+    --body-font-color: rgb(210, 210, 210);
+    --horizontal-line-color: rgba(210, 210, 210, 0.35);
+    background-color: black;
+}
+body.night.oled #article :matches(.leading-image, figure, .auxiliary, .pullquote) {
+    color: rgba(210, 210, 210, 0.9);
+}
+body.night.oled .subhead {
+    color: rgba(210, 210, 210, 0.85);
+}
+*/
+
+
+
+
+
+
+const SEPIA = {
+  background: 'rgb(248, 241, 227)',
+  color:      'rgb(79, 50, 28)',
+  headersA:   'rgba(79, 50, 28, 0.72)',
+  headersB:   'rgba(79, 50, 28, 0.72)',
+  headersC:   'rgba(79, 50, 28, 0.72)',
+  aLink:      'rgb(209, 150, 0)',
+  aHover:     'rgb(209, 150, 0)',
+  aVisited:   'rgb(209, 150, 0)',
+  aActive:    'rgb(209, 150, 0)',
+  misc: `sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote { color: rgba(79, 50, 28, 0.9); }
+hr { border: none; background-color: rgb(230, 218, 201); }`,
+};
+
+
+const SEPIA_IOS = {
+  background: 'rgb(224, 216, 200)',
+  color:      'rgb(79, 50, 28)',
+  headersA:   'rgba(79, 50, 28, 0.72)',
+  headersB:   'rgba(79, 50, 28, 0.72)',
+  headersC:   'rgba(79, 50, 28, 0.72)',
+  aLink:      'rgb(209, 150, 0)',
+  aHover:     'rgb(209, 150, 0)',
+  aVisited:   'rgb(209, 150, 0)',
+  aActive:    'rgb(209, 150, 0)',
+  misc: `sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote { color: rgba(79, 50, 28, 0.9); }
+hr { border: none; background-color: rgb(230, 218, 201); }`,
+};
+
+
+const GRAY = {
+  background: 'rgb(74, 74, 77)',
+  color:      'rgba(255, 255, 255, 0.78)',
+  headersA:   'rgba(255, 255, 255, 0.65)',
+  headersB:   'rgba(255, 255, 255, 0.65)',
+  headersC:   'rgba(255, 255, 255, 0.65)',
+  aLink:      'rgb(90, 200, 250)',
+  aHover:     'rgb(90, 200, 250)',
+  aVisited:   'rgb(90, 200, 250)',
+  aActive:    'rgb(90, 200, 250)',
+  misc: `sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote { color: rgba(255, 255, 255, 0.7); }
+hr { border: none; background-color: rgb(111, 111, 111); }`,
+};
+
+
+const GRAY_IOS = {
+  background: 'rgb(50, 50, 51)',
+  color:      'rgba(255, 255, 255, 0.78)',
+  headersA:   'rgba(255, 255, 255, 0.65)',
+  headersB:   'rgba(255, 255, 255, 0.65)',
+  headersC:   'rgba(255, 255, 255, 0.65)',
+  aLink:      'rgb(90, 200, 250)',
+  aHover:     'rgb(90, 200, 250)',
+  aVisited:   'rgb(90, 200, 250)',
+  aActive:    'rgb(90, 200, 250)',
+  misc: `sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote { color: rgba(255, 255, 255, 0.7); }
+hr { border: none; background-color: rgb(111, 111, 111); }`,
+};
+
+
+const NIGHT = {
+  background: 'rgb(18, 18, 18)',
+  color:      'rgb(176, 176, 176)',
+  headersA:   'rgba(185, 185, 185, 0.9)',
+  headersB:   'rgba(185, 185, 185, 0.9)',
+  headersC:   'rgba(185, 185, 185, 0.9)',
+  aLink:      'rgb(90, 200, 250)',
+  aHover:     'rgb(90, 200, 250)',
+  aVisited:   'rgb(90, 200, 250)',
+  aActive:    'rgb(90, 200, 250)',
+  misc: `sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote { color: rgba(255, 255, 255, 0.67); }
+hr { border: none; background-color: rgb(62, 62, 62); }`,
+};
+
+
+const NIGHT_IOS = {
+  background: 'rgb(0,0,0)',
+  color:      'rgb(176, 176, 176)',
+  headersA:   'rgba(185, 185, 185, 0.9)',
+  headersB:   'rgba(185, 185, 185, 0.9)',
+  headersC:   'rgba(185, 185, 185, 0.9)',
+  aLink:      'rgb(90, 200, 250)',
+  aHover:     'rgb(90, 200, 250)',
+  aVisited:   'rgb(90, 200, 250)',
+  aActive:    'rgb(90, 200, 250)',
+  misc: `sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote { color: rgba(255, 255, 255, 0.67); }
+hr { border: none; background-color: rgb(62, 62, 62); }`,
+};
+
 const DARK_STYLE_A = {
   background: 'rgb(53, 54, 42)',
   color: 'rgb(255, 249, 252)',
@@ -100,6 +208,34 @@ $(function(){
               </label>
               <label class="btn btn-sm btn-outline-dark${state.button == 'custom' ? ' active' :''}">
                 <input type="radio" name="options" value="custom"${state.button == 'custom' ? ' checked' :''}>Custom
+              </label>
+            </div>
+
+            <div class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
+              <label class="btn btn-sm btn-outline-dark${state.button == 'safari-sepia' ? ' active' :''}">
+                <input type="radio" name="options" value="safari-sepia"${state.button == 'safari-sepia' ? ' checked' :''}>Sepia
+              </label>
+
+              <label class="btn btn-sm btn-outline-dark${state.button == 'safari-gray' ? ' active' :''}">
+                <input type="radio" name="options" value="safari-gray"${state.button == 'safari-gray' ? ' checked' :''}>Gray
+              </label>
+
+              <label class="btn btn-sm btn-outline-dark${state.button == 'safari-night' ? ' active' :''}">
+                <input type="radio" name="options" value="safari-night"${state.button == 'safari-night' ? ' checked' :''}>Night
+              </label>
+            </div>
+
+            <div class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
+              <label class="btn btn-sm btn-outline-dark${state.button == 'safari-sepia-ios' ? ' active' :''}">
+                <input type="radio" name="options" value="safari-sepia-ios"${state.button == 'safari-sepia-ios' ? ' checked' :''}>Sepia iOS
+              </label>
+
+              <label class="btn btn-sm btn-outline-dark${state.button == 'safari-gray-ios' ? ' active' :''}">
+                <input type="radio" name="options" value="safari-gray-ios"${state.button == 'safari-gray-ios' ? ' checked' :''}>Gray iOS
+              </label>
+
+              <label class="btn btn-sm btn-outline-dark${state.button == 'safari-night-ios' ? ' active' :''}">
+                <input type="radio" name="options" value="safari-night-ios"${state.button == 'safari-night-ios' ? ' checked' :''}>Night iOS
               </label>
             </div>
 
@@ -311,19 +447,35 @@ ${params.misc}`;
         break;
       }
       case "dark-a": {
-        $style.html(buildCustomCss(DARK_STYLE_A));
-        setCustomCssFields(DARK_STYLE_A);
-        state.cssParams = DARK_STYLE_A;
-        clearQueryStringParameter();
-        $('[data-group=custom]').prop("disabled", true);
+        onPreset(DARK_STYLE_A);
         break;
       }
       case "dark-b": {
-        $style.html(buildCustomCss(DARK_STYLE_B));
-        setCustomCssFields(DARK_STYLE_B);
-        state.cssParams = DARK_STYLE_B;
-        clearQueryStringParameter();
-        $('[data-group=custom]').prop("disabled", true);
+        onPreset(DARK_STYLE_B);
+        break;
+      }
+      case "safari-sepia": {
+        onPreset(SEPIA);
+        break;
+      }
+      case "safari-gray": {
+        onPreset(GRAY);
+        break;
+      }
+      case "safari-night": {
+        onPreset(NIGHT);
+        break;
+      }
+      case "safari-sepia-ios": {
+        onPreset(SEPIA_IOS);
+        break;
+      }
+      case "safari-gray-ios": {
+        onPreset(GRAY_IOS);
+        break;
+      }
+      case "safari-night-ios": {
+        onPreset(NIGHT_IOS);
         break;
       }
       case "custom": {
@@ -332,6 +484,15 @@ ${params.misc}`;
       }
       default: console.error("unknown value")
     }
+  }
+
+  function onPreset(cssParams) {
+    const $style = $("#dynamic-style");
+    $style.html(buildCustomCss(cssParams));
+    setCustomCssFields(cssParams);
+    state.cssParams = cssParams;
+    clearQueryStringParameter();
+    $('[data-group=custom]').prop("disabled", true);
   }
 
   function onApply() {
