@@ -516,7 +516,10 @@ ${params.misc}`;
     return Array.from(entries).length > 0 ? Object.fromEntries(params.entries()) : null;
   }
 
-  $(document).on('change', 'input[type=radio]', function() { onGroupChange(this.value);});
+  $(document).on('change', 'input[type=radio]', function() { 
+    $('.btn').removeClass(['active','focus']);
+    onGroupChange(this.value);
+  });
   $(document).on('click', '[data-role=apply]', function() { onApply(); });
 
   const customCssParams = getQueryStringParameters();
