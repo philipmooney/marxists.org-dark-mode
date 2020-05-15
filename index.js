@@ -87,9 +87,65 @@ const NIGHT = {
   aHover:     'rgb(90, 200, 250)',
   aVisited:   'rgb(90, 200, 250)',
   aActive:    'rgb(90, 200, 250)',
-  misc: `sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote { color: rgba(255, 255, 255, 0.67); }
-hr { border: none; background-color: rgb(62, 62, 62); }`,
-};
+  misc: `
+sup.anote, sup.ednote, span.info, span.term, p.information, p.toc, p.title2, p.pagenote, span.context, span.date, span.inote, p.transcriber, p.pagenoteb, p.endnote {
+  color: rgba(255, 255, 255, 0.67);
+}
+
+hr {
+  border: none; background-color: rgb(62, 62, 62);
+}
+
+div.border {
+  background: rgb(18, 18, 18);
+  border-color: rgb(62, 62, 62);
+}
+
+table {
+  border-collapse: collapse;
+  background: inherit;
+}
+
+table.data {
+  background: black; }
+
+td, th {
+  background: inherit;
+  border: 1px solid rgb(50, 50, 50);
+  color: inherit;
+  padding: 0.25em 0.5em;
+}
+
+td.border {
+  border-color: rgb(50, 50, 50); }
+
+th, td.head {
+  background: rgba(255, 255, 255, 0.045); }
+
+tr.alt {
+  background: black; }
+
+tr.total {
+  background: rgb(225,177,140);
+  color: rgb(18, 18, 18);
+}
+
+tr.totalb {
+  background: rgb(230,144,103);
+  color: rgb(18, 18, 18);
+}
+
+td.index {
+  background: rgb(18, 18, 18);
+  color: inherit; }
+
+td.index-alt {
+  background: rgb(18, 18, 18);
+  color: rgb(129,129,129); }
+
+td.indexb {
+  background: rgb(18, 18, 18);
+  color: inherit; }`};
 
 
 const NIGHT_IOS = {
